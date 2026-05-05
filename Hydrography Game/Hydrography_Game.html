@@ -874,6 +874,7 @@ const center = canvas.width / 2;
 // If target.x is 100 and center is 400, sideFactor is -1 (Left)
 // If target.x is 700 and center is 400, sideFactor is 1 (Right)
 const sideFactor = target.x < center ? -1 : 1;
+const direction = target.x < center ? -1 : 1;
 
       // Grainy hull-shaped acoustic shadow. Trying to make the shadow reflect correctly based on the
       drawGrainyShadow(() => {
@@ -882,7 +883,7 @@ const sideFactor = target.x < center ? -1 : 1;
         ctx.lineTo(target.size * target.hull * 0.9, -target.size * 0.5);
         ctx.lineTo(-target.size * target.hull * 1.0, -target.size * 0.35);
         ctx.closePath();
-      }, target.shadow * 0.78, target.size * 0.92, 52);
+      }, target.shadow * 0.78, target.size * 0.92, direction, 52);
 
       // Bright return (complex hull + debris)
       const highlight = `rgba(${248 + target.size * 0.9}, ${178 + target.size * 0.6}, 100, 1)`;
