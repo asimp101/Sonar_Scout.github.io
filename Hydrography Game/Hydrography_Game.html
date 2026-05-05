@@ -831,7 +831,7 @@
       const layers = 5;
       for (let layer = 0; layer < layers; layer++) {
         const blend = layer / (layers - 1);
-        const shiftX = shadowLength * (0.45 + blend * 1.2);
+        const shiftX = direction * shadowLength * (0.45 + blend * 1.2);
         const shiftY = shadowWidth * (0.24 + blend * 0.72);
         const stretchX = 1 + blend * 1.1;
         const stretchY = 1 + blend * 0.42;
@@ -849,7 +849,7 @@
       // Speckled sonar noise for grainy acoustic shadow texture.
       const grains = Math.floor(grainDensity * 0.7 + shadowLength * 0.9);
       for (let i = 0; i < grains; i++) {
-        const jitterX = shadowLength * rand(0.35, 2.05);
+        const jitterX = direction * shadowLength * rand(0.35, 2.05);
         const jitterY = (Math.random() - 0.35) * shadowWidth * 1.8 + shadowWidth * 0.95;
         const r = rand(0.45, 1.8);
         const alpha = rand(0.03, 0.14);
