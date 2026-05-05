@@ -824,7 +824,7 @@
       ctx.fillText(`${mission.lessonTitle} | ${mission.uniqueFeature}`, 20, canvas.height - 33);
     }
 
-    function drawGrainyShadow(pathBuilder, shadowLength, shadowWidth, grainDensity = 40) {
+    function drawGrainyShadow(pathBuilder, shadowLength, shadowWidth, direction = 1, grainDensity = 40) {
       ctx.save();
 
       // Layered silhouette projection to keep shadow shape matched to the casting object.
